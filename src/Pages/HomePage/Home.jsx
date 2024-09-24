@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import Amount from "./Amount";
 import Elements from "./Elements";
 import Beneficial from "./Beneficial";
+import OrderForm from "./OrderForm";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Amount></Amount>
             <Elements></Elements>
             <Beneficial></Beneficial>
+            <OrderForm></OrderForm>
         </div>
     );
 };

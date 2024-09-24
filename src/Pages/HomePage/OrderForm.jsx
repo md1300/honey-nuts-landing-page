@@ -1,0 +1,150 @@
+import { useState } from 'react';
+import honeyBottle from '../../assets/honeyBottle.jpg'
+
+const OrderForm = () => {
+const [price,setPrice]=useState(0)
+const [quantity,setQuantity]=useState(0)
+
+const handleOrderForm =e=>{
+    e.preventDefault()
+    const form =e.target ; 
+    const name=form.name.value;
+    const phoneNumber=form.phoneNumber.value
+    const address=form.address.value;
+    const location=form.address.value;
+    const email=form.email.value;
+    const password=form.password.value;
+    console.log({name,phoneNumber,address,location,email,password})
+}
+
+
+
+const handlePluseButton=()=>{
+    const newQuantity=quantity+1 ;
+    const newPrice=price+800 ;
+    setQuantity(newQuantity)
+    setPrice(newPrice)
+    console.log({newQuantity,newPrice})
+}
+
+
+    return (
+<div className="border-4 border-black rounded-lg ">
+       <form onSubmit={handleOrderForm} className="bg-base-200">
+            <h1 className="text-center">অর্ডার করতে নিচের ফর্মটি পূরণ করুন</h1>
+            <div className="grid md:grid-cols-2 gap-4">
+                {/* -------------------form section ------------------ */}
+                <div>
+                <div className="form-control">
+               <label className="label">
+                 <span className="label-text">আপনার নাম লিখুন</span>
+              </label>
+              <input type="text" name='name' placeholder="Your name" className="input input-bordered" required />
+            </div>
+            {/* ----------------------------- */}
+                <div className="form-control">
+               <label className="label">
+                 <span className="label-text">আপনার ফোন নাম্বারটি লিখুন</span>
+              </label>
+              <input type="text" name='phoneNumber' placeholder="Your phone number" className="input input-bordered" required />
+            </div>
+            {/* --------------------------- */}
+                <div className="form-control">
+               <label className="label">
+                 <span className="label-text">ঠিকানা লিখুন </span>
+              </label>
+              <input type="text" name='address' placeholder="Your Address" className="input input-bordered" required />
+            </div>
+            {/* --------------------------- */}
+                <div className="form-control">
+               <label className="label">
+                 <span className="label-text">শহর/পুলিশ স্টেশনঃ </span>
+              </label>
+              <input type="text" name='location' placeholder="Your city/police Station" className="input input-bordered" required />
+            </div>
+            {/* --------------------------- */}
+                <div className="form-control">
+               <label className="label">
+                 <span className="label-text">ইমেইল</span>
+              </label>
+              <input type="email" name='email' placeholder="Your email" className="input input-bordered" required />
+            </div>
+            {/* --------------------------- */}
+                <div className="form-control">
+               <label className="label">
+                 <span className="label-text">পাসওয়ার্ড</span>
+              </label>
+              <input type="password" name='password' placeholder="Your name" className="input input-bordered" required />
+            </div>
+            {/* --------------------------- */}
+       
+                </div>
+                {/* ------------------Product section--------------------- */}
+                <div>
+                       <h1 className="text-2xl text-center">Your Products</h1>
+                       <div className="border border-b-orange-700 grid grid-cols-3 p-4">
+                            <h1>product</h1>
+                            <h1>quantity</h1>
+                            <h3>price</h3>                        
+                       </div>
+                       <div className='grid grid-cols-3 gap-3'>
+                         
+                            <div className='flex'>
+                                <img className='w-12' src={honeyBottle} alt="" />
+                                <p>প্রিমিয়াম হানিনাট 900 গ্রাম প্যাক</p>
+                            </div>
+                            <div>
+                                <p><span className='btn'>-</span>{quantity}<span  onClick={handlePluseButton} className='btn'>+</span></p>
+                            </div>
+                        
+                         <div>
+                            <h1>{price}<span className='text-3xl'>৳</span></h1>
+                         </div>
+                       </div>
+
+                       {/* -----------------------your order section ------------- */}
+                       {/* ---------------------order section ------------------- */}
+                       <div className='mt-16'>
+                          <h1 className='text-2xl'>Your Order :</h1>
+                          <div className='border border-b-orange-700 p-4 grid grid-cols-2'>
+                            <h3>Products</h3>
+                            <p>subtotal</p>
+                          </div>
+                          <div className='border border-b-orange-700 p-4 grid grid-cols-2 '>
+                            <div>
+                              <img className='w-20' src={honeyBottle}  />
+                              <p>প্রিমিয়াম হানিনাট 900 গ্রাম প্যাক</p>
+                            </div>
+                            <div>
+                                <p>{price}<span className='text-3xl'>৳</span> </p>
+                            </div>
+                          </div>
+                          <div className='grid grid-cols-2'>
+                            <p>subtotal</p>
+                            <p><span>{price}</span> <span className='text-3xl'>৳</span> </p>
+                          </div>
+                          <div className='grid grid-cols-2'>
+                            <p>total</p>
+                            <p><span>{price}</span> <span className='text-3xl'>৳</span> </p>
+                          </div>
+
+                       </div> 
+                </div>
+
+                
+            </div>
+
+            <div className='bg-[#bfdbfe] my-5 text-center'>
+                    <p className=''>Cash on delivery</p>
+                    <p className=''>Pay with cash upon delivery.</p>
+                </div>
+            <button className="btn btn-block text-center bg-[#4ade80]" >অর্ডার কনফার্ম করুন</button>
+     </form>   
+            
+</div>
+
+
+    );
+};
+
+export default OrderForm;
