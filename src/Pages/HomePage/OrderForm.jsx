@@ -14,7 +14,7 @@ const handleOrderForm =e=>{
     const location=form.address.value;
     const email=form.email.value;
     const password=form.password.value;
-    console.log({name,phoneNumber,address,location,email,password})
+    console.log({name,phoneNumber,address,location,email,password,price})
 }
 
 
@@ -25,6 +25,17 @@ const handlePluseButton=()=>{
     setQuantity(newQuantity)
     setPrice(newPrice)
     console.log({newQuantity,newPrice})
+}
+
+const handleMinusButton=()=>{
+    if(quantity>0){
+        const newQuantity=quantity-1 ;
+        const newPrice=price-800 ;
+        setQuantity(newQuantity)        
+        setPrice(newPrice)
+    }
+    
+    
 }
 
 
@@ -67,14 +78,14 @@ const handlePluseButton=()=>{
                <label className="label">
                  <span className="label-text">ইমেইল</span>
               </label>
-              <input type="email" name='email' placeholder="Your email" className="input input-bordered" required />
+              <input type="email" name='email' placeholder="Your email" className="input input-bordered" />
             </div>
             {/* --------------------------- */}
                 <div className="form-control">
                <label className="label">
                  <span className="label-text">পাসওয়ার্ড</span>
               </label>
-              <input type="password" name='password' placeholder="Your name" className="input input-bordered" required />
+              <input type="password" name='password' placeholder="Your name" className="input input-bordered" />
             </div>
             {/* --------------------------- */}
        
@@ -94,7 +105,7 @@ const handlePluseButton=()=>{
                                 <p>প্রিমিয়াম হানিনাট 900 গ্রাম প্যাক</p>
                             </div>
                             <div>
-                                <p><span className='btn'>-</span>{quantity}<span  onClick={handlePluseButton} className='btn'>+</span></p>
+                                <p><span onClick={handleMinusButton} className='btn text-2xl'>-</span>{quantity}<span  onClick={handlePluseButton} className='btn text-2xl'>+</span></p>
                             </div>
                         
                          <div>
