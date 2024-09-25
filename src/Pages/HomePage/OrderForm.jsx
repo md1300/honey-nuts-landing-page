@@ -1,12 +1,12 @@
 
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import honeyBottle from '../../assets/honeyBottle.jpg'
 import Swal from 'sweetalert2';
 
 
 const OrderForm =forwardRef((props,ref) => {
-const [price,setPrice]=useState(0)
-const [quantity,setQuantity]=useState(0)
+const [price,setPrice]=useState(1000)
+const [quantity,setQuantity]=useState(1)
 
  
 
@@ -18,21 +18,10 @@ const handleOrderForm =e=>{
     const address=form.address.value;
     const location=form.address.value;
     const email=form.email.value;
-    const password=form.password.value;
-    const customerData={name,phoneNumber,address,location,email,password,price,quantity}
-    console.log({name,phoneNumber,address,location,email,password,price,quantity})
+    
+    const customerData={name,phoneNumber,address,location,email,price,quantity}
+   
 
-    // fetch('http://localhost:5000/hussain',{
-    //   method:'POST',
-    //   headers:{
-    //     "Content-Type": "application/json",
-    //   },
-    //   body:JSON.stringify(customerData)
-    //  })
-    //  .then(res=>res.json)
-    //  .then(data=>console.log(data))
-
-// ----------------------------
 Swal.fire({
   title: "Do you want to confirm order ? ",
   showDenyButton: true,
@@ -67,16 +56,16 @@ Swal.fire({
 
 const handlePluseButton=()=>{
     const newQuantity=quantity+1 ;
-    const newPrice=price+800 ;
+    const newPrice=price+1000 ;
     setQuantity(newQuantity)
     setPrice(newPrice)
     console.log({newQuantity,newPrice})
 }
 
 const handleMinusButton=()=>{
-    if(quantity>0){
+    if(quantity>1){
         const newQuantity=quantity-1 ;
-        const newPrice=price-800 ;
+        const newPrice=price-1000 ;
         setQuantity(newQuantity)        
         setPrice(newPrice)
     }
@@ -129,13 +118,7 @@ const handleMinusButton=()=>{
               <input type="email" name='email' placeholder="Your email" className="input input-bordered" />
             </div>
             {/* --------------------------- */}
-                <div className="form-control">
-               <label className="label">
-                 <span className="label-text">পাসওয়ার্ড</span>
-              </label>
-              <input type="password" name='password' placeholder="Your name" className="input input-bordered" />
-            </div>
-            {/* --------------------------- */}
+               
        
                 </div>
                 {/* ------------------Product section--------------------- */}

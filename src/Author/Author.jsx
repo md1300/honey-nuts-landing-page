@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CustomerDetails from "./CustomerDetails";
 
 
 const Author = () => {
@@ -15,13 +16,15 @@ const Author = () => {
 
     return (
         <div>
-            <h1>the length of data : {customersData.length}</h1>
+            <h1 className="text-3xl text-center">the length of order : {customersData.length}</h1>
+            <div className="grid  lg:grid-cols-3 gap-2">
             {
-                customersData.map(customerData=><div key={customerData._id}>
-                    <h1>the price of product : {customerData.price}</h1>
-                    <h1>the quantity of product : {customerData.quantity}</h1>
-                </div>)
+                customersData.map(customerData=><CustomerDetails 
+                    key={customerData._id}
+                    customerData={customerData}
+                ></CustomerDetails>)
             }
+            </div>
         </div>
     );
 };
