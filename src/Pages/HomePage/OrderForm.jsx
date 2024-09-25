@@ -1,9 +1,14 @@
-import { useState } from 'react';
+
+import { forwardRef, useState } from 'react';
 import honeyBottle from '../../assets/honeyBottle.jpg'
 
-const OrderForm = () => {
+
+const OrderForm =forwardRef((props,ref) => {
 const [price,setPrice]=useState(0)
 const [quantity,setQuantity]=useState(0)
+
+
+
 
 const handleOrderForm =e=>{
     e.preventDefault()
@@ -40,8 +45,10 @@ const handleMinusButton=()=>{
 
 
     return (
-<div className="border-4 border-black rounded-lg ">
-       <form onSubmit={handleOrderForm} className="bg-base-200">
+      
+     
+<div  className="border-4 border-black rounded-lg ">
+       <form ref={ref} onSubmit={handleOrderForm} className="bg-base-200">
             <h1 className="text-center">অর্ডার করতে নিচের ফর্মটি পূরণ করুন</h1>
             <div className="grid md:grid-cols-2 gap-4">
                 {/* -------------------form section ------------------ */}
@@ -151,11 +158,16 @@ const handleMinusButton=()=>{
                 </div>
             <button className="btn btn-block text-center bg-[#4ade80]" >অর্ডার কনফার্ম করুন</button>
      </form>   
-            
+
+    
+
 </div>
 
 
-    );
-};
 
-export default OrderForm;
+    );
+});
+
+OrderForm.displayName='OrderForm' ;
+
+export default OrderForm ;
