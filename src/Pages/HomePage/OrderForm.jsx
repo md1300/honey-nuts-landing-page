@@ -1,14 +1,14 @@
 
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import honeyBottle from '../../assets/honeyBottle.jpg'
+import Swal from 'sweetalert2';
 
 
 const OrderForm =forwardRef((props,ref) => {
 const [price,setPrice]=useState(0)
 const [quantity,setQuantity]=useState(0)
 
-
-
+ 
 
 const handleOrderForm =e=>{
     e.preventDefault()
@@ -19,7 +19,48 @@ const handleOrderForm =e=>{
     const location=form.address.value;
     const email=form.email.value;
     const password=form.password.value;
-    console.log({name,phoneNumber,address,location,email,password,price})
+    const customerData={name,phoneNumber,address,location,email,password,price,quantity}
+    console.log({name,phoneNumber,address,location,email,password,price,quantity})
+
+    // fetch('http://localhost:5000/hussain',{
+    //   method:'POST',
+    //   headers:{
+    //     "Content-Type": "application/json",
+    //   },
+    //   body:JSON.stringify(customerData)
+    //  })
+    //  .then(res=>res.json)
+    //  .then(data=>console.log(data))
+
+// ----------------------------
+Swal.fire({
+  title: "Do you want to confirm order ? ",
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: "confirm",
+  denyButtonText: `Don't confirm`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    // -------------------------------
+    fetch('http://localhost:5000/hussain',{
+      method:'POST',
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(customerData)
+     })
+     .then(res=>res.json)
+     .then(data=>console.log(data))
+    // --------------------------------
+    Swal.fire("confirmed!", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("you do not confirm order", "", "info");
+  }
+});
+// -----------------------------
+
+
 }
 
 
@@ -171,3 +212,10 @@ const handleMinusButton=()=>{
 OrderForm.displayName='OrderForm' ;
 
 export default OrderForm ;
+
+
+
+
+ 
+
+

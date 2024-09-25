@@ -11,7 +11,7 @@ const Amount = ({handleCurrentRef}) => {
             <p className="text-center"> Amount component</p>
             <h1 className="text-2xl text-center bg-[#4ade80] my-5 p-3 border rounded-xl">হানিনাট ফুল প্যাকেজ (কাঁচের ওজন ছাড়া ৯০০ গ্রাম থাকে) প্রাইস ৮০০ টাকা, সারাদেশে ডেলিভারি চার্জ ফ্রি</h1>
         </div>
-        <div className="mt-5 ">
+        <div className="my-16 ">
             <Link>
         <div onClick={handleCurrentRef}  className="grid justify-items-center" >
             <div className="flex gap-3 items-center  justify-center animate-pulse bg-[#4ade80] p-2 border rounded-full w-64 ">
