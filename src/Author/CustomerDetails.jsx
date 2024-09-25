@@ -1,7 +1,54 @@
+import Swal from "sweetalert2";
 
+       
 
-const CustomerDetails = ({customerData}) => {
-    const {name,phoneNumber,address,location,email,price,quantity}=customerData ;
+const CustomerDetails = ({customerData,customersData,setCustomersData}) => {
+  
+    const {name,phoneNumber,address,location,email,price,quantity,_id}=customerData ;
+
+    const handleDeleteButton=id=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/hussain/${id}`,{
+                        method:'DELETE'
+                    })
+                    .then(res=>res.json())
+                    .then(data=>{
+                        console.log(data)
+                    if(data.deletedCount===1){
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                          }); 
+                          const remainingCustomersData=customersData.filter(customer=>customer._id!==id) 
+                          setCustomersData(remainingCustomersData)
+                    }})
+                 
+                }
+              });
+          
+        
+        // fetch(`http://localhost:5000/hussain/${id}`,{
+        //     method:'DELETE'
+        // })
+        // .then(res=>res.json())
+        // .then(data=>{
+        //     console.log(data)
+        // if(data.deletedCount===1){
+             
+        // }})
+        
+    }
+
     return (
        
            <div className="card bg-base-100 w-96 shadow-xl">
@@ -16,7 +63,7 @@ const CustomerDetails = ({customerData}) => {
                 <h3>Price : {price} </h3>
              </div>
             <div className="card-actions justify-end">
-            <button className="btn btn-primary">Delete</button>
+            <button onClick={()=>handleDeleteButton(_id)} className="btn btn-primary">Delete</button>
           </div>
         </div>
       </div>
@@ -25,3 +72,21 @@ const CustomerDetails = ({customerData}) => {
 };
 
 export default CustomerDetails;
+
+// Swal.fire({
+//     title: "Are you sure?",
+//     text: "You won't be able to revert this!",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonColor: "#3085d6",
+//     cancelButtonColor: "#d33",
+//     confirmButtonText: "Yes, delete it!"
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       Swal.fire({
+//         title: "Deleted!",
+//         text: "Your file has been deleted.",
+//         icon: "success"
+//       });
+//     }
+//   });

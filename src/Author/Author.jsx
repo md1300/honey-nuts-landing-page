@@ -16,12 +16,14 @@ const Author = () => {
 
     return (
         <div>
-            <h1 className="text-3xl text-center">the length of order : {customersData.length}</h1>
+            <h1 className="text-3xl text-center">the total number of order : {customersData.length}</h1>
             <div className="grid  lg:grid-cols-3 gap-2">
             {
                 customersData.map(customerData=><CustomerDetails 
                     key={customerData._id}
                     customerData={customerData}
+                    customersData={customersData}
+                    setCustomersData={setCustomersData}
                 ></CustomerDetails>)
             }
             </div>
