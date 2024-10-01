@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CustomerDetails from "./CustomerDetails";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Author = () => {
       const [customersData,setCustomersData]=useState([])
+      const {user}=useContext(AuthContext)
 
       useEffect(()=>{
-        fetch('http://localhost:5000/hussain')
+        fetch(`http://localhost:5000/jabir/${user.email}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)

@@ -18,8 +18,9 @@ const handleOrderForm =e=>{
     const address=form.address.value;
     const location=form.address.value;
     const email=form.email.value;
+    const authorEmail='jabirislam243@gmail.com'
     
-    const customerData={name,phoneNumber,address,location,email,price,quantity}
+    const customerData={name,phoneNumber,address,location,email,price,quantity,authorEmail}
    
 
 Swal.fire({

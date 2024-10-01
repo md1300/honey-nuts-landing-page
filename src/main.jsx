@@ -11,6 +11,7 @@ import CustomerDetails from './Author/CustomerDetails';
 import Login from './Pages/Authentication/Login';
 import Register from './Pages/Authentication/Register';
 import AuthProvider from './Provider/AuthProvider';
+import CustomerOrders from './Pages/OrderPage/CustomerOrders';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path:'/register',
     element:<Register/>
+  },
+  {
+    path:'/myOrders',
+    element:<CustomerOrders/>,
   }
 ]);
 
