@@ -13,20 +13,24 @@ const Elements = ({handleCurrentRef}) => {
                      <p>মধু একটি প্রাকৃতিক খাবার। এতে প্রায় ৪৫টি খাদ্য উপাদান বিদ্যমান। মধু শরীরে তাপ শক্তি যুগিয়ে শরীরকে সুস্থ রাখে,হজমে সহায়তা করে, কোষ্ঠকাঠিন্য দূর করে।</p>
                 </div>
                 <div className="bg-gray-300 max-w-80 p-5  border-4 border-black ">
-                     <h1>this is honey nuts element</h1>
+                <h1 className="text-2xl text-center">বাদাম:</h1>
+                <p>বাদাম পুষ্টগুণ সম্পূর্ণ একটি খাবার, বাদামে রয়েছে ওমেগা ৩,ভিটামিন A,ফসফরাস,ফাইবারসহ প্রযোজনীয় উপাদান।আমরা ব্যবহার করেছি, কাঠ বাদাম,পোস্তা বাদাম,ও চিনা বাদাম।</p>
                 </div>
                 <div className="bg-gray-300 max-w-80 p-5  border-4 border-black ">
-                     <h1>this is honey nuts element</h1>
+                <h1 className="text-2xl text-center">খেজুর: </h1>
+                <p>খেজুর ফলকে চিনির বিকল্প হিসাবে ধরা হয়। খেজুর শক্তির একটি ভালো উৎস। খেজুর শরীরের ক্লান্তিভাব দূর করতে সাহায্য করে।</p>
                 </div>
                 <div className="bg-gray-300 max-w-80 p-5  border-4 border-black ">
-                     <h1>this is honey nuts element</h1>
+                <h1 className="text-2xl text-center">কুমড়োর বীজ  </h1>
+                <p> কুমড়োর বীজে প্রচুর পরিমাণে অ্যান্টিঅক্সিডেন্ট, ম্যাগনেশিয়াম,জিংক ও ফ্যাটি এসিড থাকে।কুমড়োর বীজে প্রচুর ক্যালরি আছে এবং এগুলো প্রোটিন সমৃদ্ধ।যা রোগ প্রতিরোধ ক্ষমতা বাড়ায়।</p>
                 </div>
                 <div className="bg-gray-300 max-w-80 p-5  border-4 border-black ">
                      <h1 className="text-2xl text-center">আখরোটে</h1>
                      <p>আখরোটে রয়েছে স্নেহ, ফাইবার,প্রোটিন এর মত উপাদান। যা আমাদের   হৃদপিণ্ড ভাল রাখার পাশাপাশি ত্বক ভাল রাখে</p>
                 </div>
                 <div className="bg-gray-300 max-w-80 p-5  border-4 border-black ">
-                     <h1>this is honey nuts element</h1>
+                <h1 className="text-2xl text-center">আখরোটে</h1>
+                <p>আখরোটে রয়েছে স্নেহ, ফাইবার,প্রোটিন এর মত উপাদান। যা আমাদের   হৃদপিণ্ড ভাল রাখার পাশাপাশি ত্বক ভাল রাখে</p>
                 </div>
                 <div className="bg-gray-300 max-w-80 p-5  border-4 border-black ">
                      <h1 className="text-2xl text-center">আলুবোখারা</h1>

@@ -7,6 +7,7 @@ import Beneficial from "./Beneficial";
 import OrderForm from "./OrderForm";
 
 import { useRef } from "react";
+import Navber from "../../Share/Navber";
 
 
 
@@ -20,7 +21,7 @@ const Home = () => {
     }
     return (
         <div className="p-5 bg-[#d9f99d]">
-            
+            <Navber></Navber>
             <h1 className="text-2xl text-center">this is home page</h1>
             <Header></Header>
             <Banner></Banner>
