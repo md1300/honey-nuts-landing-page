@@ -20,12 +20,12 @@ const CustomerOrders = () => {
 
     return (
         <div>
-            <Navber/>
-            <p>the total number of order is : {myOrders.length} </p>
+            
+            <h1 className="text-3xl text-center mb-4">the total number of order is : {myOrders.length} </h1>
             
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
            {
-            myOrders.map(myOrder=><div className="card  border border-red-300" key={myOrder._id}>
+            myOrders.map(myOrder=><div className="card p-6  border border-red-300" key={myOrder._id}>
                 <h1>name:{myOrder.name}</h1>
                 <h3>phoneNumber: {myOrder.phoneNumber}</h3>
                 <div className="flex justify-between">

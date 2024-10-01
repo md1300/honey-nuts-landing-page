@@ -12,33 +12,65 @@ import Login from './Pages/Authentication/Login';
 import Register from './Pages/Authentication/Register';
 import AuthProvider from './Provider/AuthProvider';
 import CustomerOrders from './Pages/OrderPage/CustomerOrders';
+import Main from './Main/Main';
+import ErrorPage from './Pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    errorElement:<ErrorPage/>,
+    element: <Main/>,
+    children:[
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path:"/hussain",
+        element:<Author></Author>
+      },
+      {
+        path:"/hussain/:id",
+        element:<CustomerDetails></CustomerDetails>,   
+      },
+      {
+        path:'/login',
+        element:<Login/>
+      },
+      {
+        path:'/register',
+        element:<Register/>
+      },
+      {
+        path:'/myOrders',
+        element:<CustomerOrders/>,
+      }
+    ]
   },
-  {
-    path:"/hussain",
-    element:<Author></Author>
-  },
-  {
-    path:"/hussain/:id",
-    element:<CustomerDetails></CustomerDetails>,
-    
-  },
-  {
-    path:'/login',
-    element:<Login/>
-  },
-  {
-    path:'/register',
-    element:<Register/>
-  },
-  {
-    path:'/myOrders',
-    element:<CustomerOrders/>,
-  }
+  // {
+  //   path: "/",
+  //   element: <Home></Home>,
+  // },
+  // {
+  //   path:"/hussain",
+  //   element:<Author></Author>
+  // },
+  // {
+  //   path:"/hussain/:id",
+  //   element:<CustomerDetails></CustomerDetails>,   
+  // },
+  // {
+  //   path:'/login',
+  //   element:<Login/>
+  // },
+  // {
+  //   path:'/register',
+  //   element:<Register/>
+  // },
+  // {
+  //   path:'/myOrders',
+  //   element:<CustomerOrders/>,
+  // }
 ]);
 
 createRoot(document.getElementById('root')).render(

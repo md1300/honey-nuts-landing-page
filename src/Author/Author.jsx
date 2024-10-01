@@ -5,15 +5,16 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Author = () => {
       const [customersData,setCustomersData]=useState([])
-      const {user}=useContext(AuthContext)
+      const {user,}=useContext(AuthContext)
 
       useEffect(()=>{
-        fetch(`http://localhost:5000/jabir/${user.email}`)
+        fetch(`http://localhost:5000/jabir/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
+            
             console.log(data)
             setCustomersData(data)})
-      },[])
+      },[user])
 
 
     return (
