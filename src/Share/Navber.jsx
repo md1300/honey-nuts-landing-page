@@ -9,12 +9,15 @@ const Navber = () => {
 
   const handleLogOut=()=>{
     logOut()
+    fetch('http://localhost:5000/logout', {credentials: 'include'})
+    .then(res=>res.json())
+    .then(data=>console.log(data))
      navigate('/')
   }
     return (
       <div className="navbar bg-base-100 border rounded-lg">
   <div className="flex-1">
-    <a className="btn btn-ghost text-xl">HONEY NUTS</a>
+    <Link className="btn btn-ghost text-xl">HONEY NUTS</Link>
   </div>
   <div className="flex-none gap-2">
     {!user && <Link to='/login' className="btn btn-circle">login</Link>}
@@ -43,3 +46,6 @@ const Navber = () => {
 };
 
 export default Navber;
+
+
+

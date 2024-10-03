@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import Navber from "../../Share/Navber";
+
 import { AuthContext } from "../../Provider/AuthProvider";
 
 
@@ -9,10 +9,11 @@ const CustomerOrders = () => {
     const [myOrders,setMyOrders]=useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/myOrder/${user?.email}`)
+        fetch(`http://localhost:5000/myOrder/${user?.email}`,{credentials:'include'})
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+
             setMyOrders(data)})
     },[user])
      

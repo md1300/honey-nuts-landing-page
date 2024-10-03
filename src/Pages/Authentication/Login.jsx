@@ -2,7 +2,6 @@ import { Link, useNavigate, } from 'react-router-dom';
 import honeyBottle from '../../assets/honeyBottle.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-import Navber from '../../Share/Navber';
 import Swal from 'sweetalert2'
 
 
@@ -22,6 +21,18 @@ const Login = () => {
          logedIn(email,password)
          .then(result=>{
             setUser(result.user)
+             fetch('http://localhost:5000/jwt',{
+                method:'POST',
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                credentials: 'include',
+                body:JSON.stringify({email:result?.user?.email})              
+            })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+
+            
             Swal.fire({
                 title: "Log In successful ",
                 text: "now, you can see your order",
