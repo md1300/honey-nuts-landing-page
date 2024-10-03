@@ -8,7 +8,7 @@ const Author = () => {
       const {user,}=useContext(AuthContext)
 
       useEffect(()=>{
-        fetch(`http://localhost:5000/jabir/${user?.email}`)
+        fetch(`http://localhost:5000/jabir/${user?.email}`,{credentials:'include'})
         .then(res=>res.json())
         .then(data=>{
             
