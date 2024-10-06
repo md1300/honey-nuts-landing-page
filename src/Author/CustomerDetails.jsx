@@ -17,7 +17,7 @@ const CustomerDetails = ({customerData,customersData,setCustomersData}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/hussain/${id}`,{
+                    fetch(`${import.meta.env.VITE_API_URL}/hussain/${id}`,{
                         method:'DELETE'
                     })
                     .then(res=>res.json())

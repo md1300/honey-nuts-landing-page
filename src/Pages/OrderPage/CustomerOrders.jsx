@@ -9,7 +9,7 @@ const CustomerOrders = () => {
     const [myOrders,setMyOrders]=useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/myOrder/${user?.email}`,{credentials:'include'})
+        fetch(`${import.meta.env.VITE_API_URL}/myOrder/${user?.email}`,{credentials:'include'})
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -22,11 +22,11 @@ const CustomerOrders = () => {
     return (
         <div>
             
-            <h1 className="text-3xl text-center mb-4">the total number of order is : {myOrders.length} </h1>
+            <h1 className="text-3xl text-center mb-4 font-semibold">the total number of order is : {myOrders.length} </h1>
             
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 ">
            {
-            myOrders.map(myOrder=><div className="card p-6  border border-red-300" key={myOrder._id}>
+            myOrders.map(myOrder=><div className="card p-6  border border-red-300 bg-white text-black" key={myOrder._id}>
                 <h1>name:{myOrder.name}</h1>
                 <h3>phoneNumber: {myOrder.phoneNumber}</h3>
                 <div className="flex justify-between">

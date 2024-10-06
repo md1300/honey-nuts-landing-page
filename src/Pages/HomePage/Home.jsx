@@ -22,7 +22,7 @@ const Home = () => {
     return (
         <div >
             
-            <h1 className="text-2xl text-center ">this is home page</h1>
+            
             <Header></Header>
             <Banner></Banner>
             <Amount handleCurrentRef={handleCurrentRef} ></Amount>

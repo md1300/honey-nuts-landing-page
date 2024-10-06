@@ -9,7 +9,7 @@ const Navber = () => {
 
   const handleLogOut=()=>{
     logOut()
-    fetch('http://localhost:5000/logout', {credentials: 'include'})
+    fetch(`${import.meta.env.VITE_API_URL}/logout`, {credentials: 'include'})
     .then(res=>res.json())
     .then(data=>console.log(data))
      navigate('/')
@@ -17,13 +17,14 @@ const Navber = () => {
     return (
       <div className="navbar bg-base-100 border rounded-lg">
   <div className="flex-1">
-    <Link className="btn btn-ghost text-xl">HONEY NUTS</Link>
+    <Link className="btn btn-ghost text-xl font-bold">HONEY NUTS</Link>
   </div>
   <div className="flex-none gap-2">
     {!user && <Link to='/login' className="btn btn-circle">login</Link>}
 
     {user && <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip  tooltip-left"
+      data-tip={user && user.email}>
         <div className="w-10 rounded-full">
 
         <img

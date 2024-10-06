@@ -5,7 +5,7 @@ import Footer from "../Share/Footer";
 
 const Main = () => {
     return (
-        <div className="grid gap-6 p-5 bg-[#d9f99d]">
+        <div className="grid gap-6 px-5 bg-[#d9f99d]">
             <Navber/>
             <div className="min-h-[calc(100vh-134px)]">
             <Outlet/>

@@ -15,13 +15,11 @@ const Login = () => {
         const form=e.target;
         const email=form.email.value;
         const password=form.password.value;
-        const inputData={email,password};
-        console.log(inputData);
-
+ 
          logedIn(email,password)
          .then(result=>{
             setUser(result.user)
-             fetch('http://localhost:5000/jwt',{
+             fetch(`${import.meta.env.VITE_API_URL}/jwt`,{
                 method:'POST',
                 headers:{
                     "Content-Type": "application/json"
@@ -40,7 +38,10 @@ const Login = () => {
               });
             navigate('/')
             console.log(result.user)})
-         .catch(error=>console.log(error.message))
+         .catch(error=>{
+            Swal.fire(error.message);
+            form.reset()
+         })
     }
     
 
